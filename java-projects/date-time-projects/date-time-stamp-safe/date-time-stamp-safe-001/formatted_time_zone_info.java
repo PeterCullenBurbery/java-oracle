@@ -50,6 +50,13 @@ public class formatted_time_zone_info {
     }
 
     public static void main(String[] args) {
-        System.out.println(safetime_timestamp_of_underscore());
+        String original = Get_current_date_timestamp();
+        System.out.println(original); // Step 1: original timestamp
+
+        String no_slash = replace_slash(original);
+        System.out.println(no_slash); // Step 2: slash replaced
+
+        String safe = replace_special_chars(no_slash);
+        System.out.println(safe); // Step 3: everything underscored
     }
 }
