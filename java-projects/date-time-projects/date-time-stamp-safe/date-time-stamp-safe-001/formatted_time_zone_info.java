@@ -23,9 +23,8 @@ public class formatted_time_zone_info {
 
         // Compose output
         String output = String.format(
-            "%s %s %04d-W%03d-%03d %04d-%03d",
-            date_part, time_part, iso_year, week, weekday, now.getYear(), day_of_year
-        );
+                "%s %s %04d-W%03d-%03d %04d-%03d",
+                date_part, time_part, iso_year, week, weekday, now.getYear(), day_of_year);
 
         // Insert time zone ID between parts
         output = output.replace(time_part, time_part + " " + tz);
@@ -49,6 +48,10 @@ public class formatted_time_zone_info {
         return replace_special_chars(replace_slash(Get_current_date_timestamp()));
     }
 
+    public static String user_timestamped() {
+        return "user_" + safetime_timestamp_of_underscore();
+    }
+
     public static void main(String[] args) {
         String original = Get_current_date_timestamp();
         System.out.println(original); // Step 1: original timestamp
@@ -58,5 +61,8 @@ public class formatted_time_zone_info {
 
         String safe = replace_special_chars(no_slash);
         System.out.println(safe); // Step 3: everything underscored
+
+        String username = user_timestamped();
+        System.out.println(username); // Final username
     }
 }
