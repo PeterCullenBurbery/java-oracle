@@ -37,9 +37,19 @@ public class formatted_time_zone_info {
         return input.replace("/", " slash ");
     }
 
+    public static String replace_special_chars(String input) {
+        String[] targets = { "-", " ", "." };
+        for (String ch : targets) {
+            input = input.replace(ch, "_");
+        }
+        return input;
+    }
+
+    public static String safetime_timestamp_of_underscore() {
+        return replace_special_chars(replace_slash(Get_current_date_timestamp()));
+    }
+
     public static void main(String[] args) {
-        String timestamp = Get_current_date_timestamp();
-        String modified = replace_slash(timestamp);
-        System.out.println(modified);
+        System.out.println(safetime_timestamp_of_underscore());
     }
 }
