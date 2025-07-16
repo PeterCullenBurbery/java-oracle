@@ -32,4 +32,9 @@ public class formatted_time_zone_info {
 
         return output;
     }
+
+    public static void main(String[] args) {
+        String timestamp = Get_current_date_timestamp();
+        System.out.println(timestamp);
+    }
 }
