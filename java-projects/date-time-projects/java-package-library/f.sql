@@ -10,6 +10,7 @@ public class formatted_time_zone_info {
         ZoneId tz = now.getZone();
 
         // Nanoseconds pattern
+        // functionally equivalent to String nanoseconds_pattern = "n".repeat(9);
         // Nanoseconds pattern using loop instead of repeat (Java 8 compatible)
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < 9; i++) {
