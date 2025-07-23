@@ -8,9 +8,12 @@ public class formatted_time_zone_info {
         ZonedDateTime now = ZonedDateTime.now();
         ZoneId tz = now.getZone();
 
+        // Nanoseconds pattern using repeat
+        String nanoseconds_pattern = "n".repeat(9);
+
         // Gregorian calendar parts
         String date_part = now.format(DateTimeFormatter.ofPattern("yyyy-0MM-0dd"));
-        String time_part = now.format(DateTimeFormatter.ofPattern("0HH.0mm.0ss.nnnnnnnnn"));
+        String time_part = now.format(DateTimeFormatter.ofPattern("0HH.0mm.0ss." + nanoseconds_pattern));
 
         // ISO week info
         WeekFields wf = WeekFields.ISO;
